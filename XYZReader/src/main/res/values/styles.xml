@@ -17,12 +17,14 @@
 
 <resources>
 
-    <style name="Theme.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
-
+    <style name="Theme.Bacon" parent="@style/Private.Theme.Master.Bacon">
     </style>
 
     <style name="Theme.Bacon.Detail">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
+    <style name="Private.Theme.Master.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
+        <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+    </style>
 </resources>
