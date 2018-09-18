@@ -8,5 +8,8 @@
     <string name="action_share">Share</string>
 
     <string name="up">Up</string>
+    <string name="lorem_ipsum_spamsome">Lorem ipsum here is a whole lot of text to show things.</string>
+    <string name="article_title">This, An Article Title \n And here\'s a possible second line. \n And this should never appear.</string>
+    <string name="article_subtitle">Author: John Doe 1932</string>
 
 </resources>

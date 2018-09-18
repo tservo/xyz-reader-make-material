@@ -17,14 +17,62 @@
 
 <resources>
 
-    <style name="Theme.Bacon" parent="@style/Private.Theme.Master.Bacon">
+    <style name="Theme.Bacon" parent="BaseTheme.Master.Bacon">
     </style>
 
-    <style name="Theme.Bacon.Detail">
+    <style name="Theme.Bacon.Detail" parent="BaseTheme.Master.Bacon">
         <item name="android:statusBarColor">@android:color/transparent</item>
     </style>
 
-    <style name="Private.Theme.Master.Bacon" parent="@style/Theme.AppCompat.Light.NoActionBar">
+
+    <style name="BaseTheme.Master.Bacon" parent="Theme.AppCompat.Light.NoActionBar">
         <item name="coordinatorLayoutStyle">@style/Widget.Design.CoordinatorLayout</item>
+        <item name="cardViewStyle">@style/CardView</item>
+
+        <item name="colorPrimary">@color/theme_primary</item>
+        <item name="colorPrimaryDark">@color/theme_primary_dark</item>
+        <item name="colorAccent">@color/theme_accent</item>
+
+    </style>
+
+    <style name="Text_ArticleTitleCard" parent="TextAppearance.AppCompat.Subhead">
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingTop">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingBottom">4dp</item>
+        <item name="android:textStyle">bold</item>
+        <item name="android:ellipsize">end</item>
+        <item name="android:maxLines">4</item>
+    </style>
+
+    <style name="Text_ArticleSubtitleTitleCard" parent="TextAppearance.AppCompat.Body1">
+
+        <item name="android:paddingLeft">16dp</item>
+        <item name="android:paddingRight">16dp</item>
+        <item name="android:paddingBottom">16dp</item>
+        <item name="android:textStyle">italic</item>
+        <item name="android:maxLines">2</item>
+        <item name="android:ellipsize">end</item>
+    </style>
+
+    <style name="ArticleCardView" parent="CardView">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_marginLeft">@dimen/card_margin</item>
+        <item name="android:layout_marginRight">@dimen/card_margin</item>
+        <item name="android:layout_marginTop">@dimen/card_margin</item>
+        <item name="android:layout_marginBottom">@dimen/card_margin</item>
+        <item name="android:elevation">2dp</item>
+        <item name="android:clickable">true</item>
+        <item name="android:focusable">true</item>
+        <item name="android:foreground">?selectableItemBackground</item>
+        <item name="android:background">@color/theme_primary_dark</item>
+    </style>
+
+    <style name="ArticleDetailTitleText">
+        <item name="android:fontFamily">sans-serif-condensed</item>
+
+        <item name="android:textSize">@dimen/detail_title_text_size</item>
+        <item name="android:textStyle">bold</item>
     </style>
 </resources>
