@@ -27,6 +27,7 @@ import android.support.v7.widget.Toolbar;
 import android.text.Html;
 import android.text.format.DateUtils;
 import android.text.method.LinkMovementMethod;
+import android.util.DisplayMetrics;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -57,8 +58,6 @@ public class ArticleDetailFragment extends Fragment implements
     private int mMutedColor = 0xFF333333;
     private AppBarLayout mAppBarLayout;
     private CollapsingToolbarLayout mCollapsingToolbarLayout;
-    private NestedScrollView mScrollView;
-    private CoordinatorLayout mCoordinatorLayout;
     private ColorDrawable mStatusBarColorDrawable;
     private Toolbar mToolbar;
 
@@ -123,10 +122,8 @@ public class ArticleDetailFragment extends Fragment implements
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         mRootView = inflater.inflate(R.layout.fragment_article_detail, container, false);
-        mCoordinatorLayout =
-                mRootView.findViewById(R.id.detail_coordinator_layout);
 
-        // get the toolbar, do it right, not kluge the arrow.
+
         mToolbar = mRootView.findViewById(R.id.toolbar);
         getActivityCast().setSupportActionBar(mToolbar);
 
@@ -143,10 +140,19 @@ public class ArticleDetailFragment extends Fragment implements
 
         mCollapsingToolbarLayout = mRootView.findViewById(R.id.collapsing_toolbar_layout);
 
-        mScrollView = mRootView.findViewById(R.id.scrollview);
+
 
 
         mPhotoView = mRootView.findViewById(R.id.photo);
+        // here we will constrain the image view from taking more than 1/2 the height of the device.
+        // https://stackoverflow.com/questions/4743116/get-screen-width-and-height'
+        DisplayMetrics displayMetrics = new DisplayMetrics();
+        getActivityCast().getWindowManager()
+                .getDefaultDisplay()
+                .getMetrics(displayMetrics);
+        mPhotoView.setMaxHeight(displayMetrics.heightPixels / 2);
+
+
         mPhotoContainerView = mRootView.findViewById(R.id.photo_container);
 
         mStatusBarColorDrawable = new ColorDrawable(0);
